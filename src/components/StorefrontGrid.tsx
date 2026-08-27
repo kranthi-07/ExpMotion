@@ -15,16 +15,7 @@ export function StorefrontGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {EFFECTS_CATALOG.map((effect, idx) => {
           const Icon = effect.icon;
-          return effect.comingSoon ? (
-            <div key={effect.id} className="glass-panel p-8 flex flex-col gap-4 opacity-50 cursor-not-allowed">
-              <div className={`p-4 rounded-xl bg-white/5 w-fit ${effect.color}`}>
-                <Icon size={32} />
-              </div>
-              <h3 className="text-2xl font-bold">{effect.name}</h3>
-              <p className="text-text-secondary flex-1">{effect.desc}</p>
-              <div className="mt-4 text-sm font-semibold text-text-secondary uppercase tracking-wider">Coming Soon</div>
-            </div>
-          ) : (
+          return (
             <Link key={effect.id} href={`/effect/${effect.id}`}>
               <motion.div 
                 whileHover={{ y: -5, scale: 1.02 }}

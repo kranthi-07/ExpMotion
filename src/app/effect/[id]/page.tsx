@@ -38,9 +38,6 @@ export default async function EffectPage({ params }: { params: Promise<{ id: str
             {effect.id === "glass" && <LiquidGlassDemo />}
             {effect.id === "layers" && <ParallaxLayersDemo />}
             {effect.id === "neon" && <NeonBorderDemo />}
-            {(effect as any).comingSoon && (
-              <div className="text-xl text-text-secondary">Demo Coming Soon</div>
-            )}
           </div>
 
           {/* Details Sidebar */}
@@ -49,16 +46,14 @@ export default async function EffectPage({ params }: { params: Promise<{ id: str
               <h1 className="text-3xl font-bold">{effect.name}</h1>
               <p className="text-text-secondary leading-relaxed">{effect.desc}</p>
               
-              {!effect.comingSoon && (
-                <div className="mt-8 border-t border-border pt-8 flex flex-col gap-4">
-                  <div className="flex justify-between items-baseline">
-                    <span className="text-sm text-text-secondary uppercase tracking-wider">Single License</span>
-                    <span className="text-2xl font-bold">₹99</span>
-                  </div>
-                  <CheckoutButton label="Buy Component" productId="single" />
-                  <p className="text-xs text-center text-text-secondary mt-2">Included in Starter Bundle</p>
+              <div className="mt-8 border-t border-border pt-8 flex flex-col gap-4">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-sm text-text-secondary uppercase tracking-wider">Single License</span>
+                  <span className="text-2xl font-bold">₹99</span>
                 </div>
-              )}
+                <CheckoutButton label="Buy Component" productId="single" />
+                <p className="text-xs text-center text-text-secondary mt-2">Included in Starter Bundle</p>
+              </div>
             </div>
           </div>
         </div>
