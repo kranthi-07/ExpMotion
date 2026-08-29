@@ -29,7 +29,22 @@ export function PricingTiers() {
             <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> React Source Code</li>
             <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> Tailwind Support</li>
           </ul>
-          <CheckoutButton label="Buy Single" productId="single" />
+          <button 
+            onClick={() => {
+              const storeEl = document.getElementById('store');
+              if (storeEl) {
+                storeEl.scrollIntoView({ behavior: 'smooth' });
+                // Briefly flash the store section to draw attention
+                storeEl.classList.add('ring-2', 'ring-accent', 'ring-offset-8', 'ring-offset-black', 'rounded-3xl', 'transition-all', 'duration-500');
+                setTimeout(() => {
+                  storeEl.classList.remove('ring-2', 'ring-accent', 'ring-offset-8', 'ring-offset-black', 'rounded-3xl');
+                }, 2000);
+              }
+            }}
+            className="w-full cursor-pointer bg-white/10 text-white font-medium py-3 px-4 rounded-full hover:bg-white/20 transition-all duration-300 flex items-center justify-center min-h-[48px]"
+          >
+            Select an Element
+          </button>
         </div>
 
         {/* Tier 2 (Highlighted) */}

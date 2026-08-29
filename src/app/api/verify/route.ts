@@ -7,7 +7,7 @@ const RAZORPAY_SECRET = process.env.RAZORPAY_KEY_SECRET || "mock_secret";
 
 export async function POST(req: Request) {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, isMock, productId } = await req.json();
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, isMock, productId, effectId } = await req.json();
 
     let isValid = false;
 
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     if (isValid) {
       // Payment verified! Generate a secure JWT token for downloading
       const token = jwt.sign(
-        { productId, orderId: razorpay_order_id, timestamp: Date.now() },
+        { productId, effectId, orderId: razorpay_order_id, timestamp: Date.now() },
         JWT_SECRET,
         { expiresIn: "24h" } // Link expires in 24 hours
       );

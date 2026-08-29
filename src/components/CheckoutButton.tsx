@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export function CheckoutButton({ label = "Buy Vol. 01", productId = "bundle" }: { label?: string, productId?: string }) {
+export function CheckoutButton({ label = "Buy Vol. 01", productId = "bundle", effectId }: { label?: string, productId?: string, effectId?: string }) {
   const [status, setStatus] = useState<"idle" | "loading" | "error" | "success">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
@@ -37,6 +37,7 @@ export function CheckoutButton({ label = "Buy Vol. 01", productId = "bundle" }: 
               razorpay_signature: "mock_sig",
               isMock: true,
               productId,
+              effectId,
             })
           });
           const verifyData = await verifyRes.json();
@@ -81,6 +82,7 @@ export function CheckoutButton({ label = "Buy Vol. 01", productId = "bundle" }: 
                 ...response,
                 isMock: false,
                 productId,
+                effectId,
               })
             });
             const verifyData = await verifyRes.json();

@@ -15,11 +15,26 @@ export async function GET(req: Request) {
 
   try {
     // Verify the JWT signature and expiration
-    const decoded = jwt.verify(token, JWT_SECRET) as { productId: string };
+    const decoded = jwt.verify(token, JWT_SECRET) as { productId: string, effectId?: string };
     
-    // Valid token. Fetch the asset from the secure folder.
-    // We are serving the file securely via stream rather than a public URL.
-    const filePath = path.join(process.cwd(), "src", "assets", "vol_01_source.zip");
+    // Determine which file to serve based on the purchase
+    let fileName = "vol_01_source.zip"; // Default for bundle/pro
+    
+    if (decoded.productId === "single" && decoded.effectId) {
+      const map: Record<string, string> = {
+        "cursor": "CursorSpotlight.zip",
+        "glass": "LiquidGlass.zip",
+        "magnetic": "MagneticButton.zip",
+        "neon": "NeonBorder.zip",
+        "layers": "ParallaxLayers.zip"
+      };
+      
+      if (map[decoded.effectId]) {
+        fileName = map[decoded.effectId];
+      }
+    }
+
+    const filePath = path.join(process.cwd(), "src", "assets", fileName);
     
     if (!fs.existsSync(filePath)) {
       return new NextResponse("Asset not found on server", { status: 404 });
@@ -31,7 +46,7 @@ export async function GET(req: Request) {
       status: 200,
       headers: {
         "Content-Type": "application/zip",
-        "Content-Disposition": `attachment; filename="EXP_MOTION_${decoded.productId}_assets.zip"`,
+        "Content-Disposition": `attachment; filename="${fileName}"`,
       },
     });
 

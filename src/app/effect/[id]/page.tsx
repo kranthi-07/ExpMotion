@@ -58,7 +58,7 @@ export default async function EffectPage({ params }: { params: Promise<{ id: str
                   <span className="text-sm text-text-secondary uppercase tracking-wider">Single License</span>
                   <span className="text-2xl font-bold">₹99</span>
                 </div>
-                <CheckoutButton label="Buy Component" productId="single" />
+                <CheckoutButton label="Buy Component" productId="single" effectId={effect.id} />
                 <p className="text-xs text-center text-text-secondary mt-2">Included in Starter Bundle</p>
                 
                 {/* Guarantee */}
