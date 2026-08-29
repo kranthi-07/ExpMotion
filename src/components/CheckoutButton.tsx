@@ -66,7 +66,7 @@ export function CheckoutButton({ label = "Buy Vol. 01", productId = "bundle" }: 
       if (!isLoaded) throw new Error("Razorpay SDK failed to load");
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Ensure you add NEXT_PUBLIC_RAZORPAY_KEY_ID to .env.local
+        key: order.keyId, // Fetched securely from the backend API
         amount: order.amount,
         currency: order.currency,
         name: "EXP MOTION",
