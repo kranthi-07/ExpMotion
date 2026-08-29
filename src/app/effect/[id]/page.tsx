@@ -7,8 +7,10 @@ import { LiquidGlassDemo } from "@/components/effects/LiquidGlassDemo";
 import { ParallaxLayersDemo } from "@/components/effects/ParallaxLayersDemo";
 import { NeonBorderDemo } from "@/components/effects/NeonBorderDemo";
 import { CheckoutButton } from "@/components/CheckoutButton";
+import { Footer } from "@/components/Footer";
+import { PageTransition } from "@/components/PageTransition";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Clock } from "lucide-react";
 
 export default async function EffectPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
@@ -25,7 +27,7 @@ export default async function EffectPage({ params }: { params: Promise<{ id: str
       {/* Background Grid */}
       <div className="bg-grid" />
 
-      <div className="w-full max-w-6xl mx-auto px-4 pt-32 pb-24 flex flex-col gap-8">
+      <PageTransition className="w-full max-w-6xl mx-auto px-4 pt-32 pb-24 flex flex-col gap-8">
         <Link href="/#store" className="flex items-center gap-2 text-text-secondary hover:text-white transition-colors w-fit">
           <ArrowLeft size={16} /> Back to Store
         </Link>
@@ -46,6 +48,11 @@ export default async function EffectPage({ params }: { params: Promise<{ id: str
               <h1 className="text-3xl font-bold">{effect.name}</h1>
               <p className="text-text-secondary leading-relaxed">{effect.desc}</p>
               
+              <div className="flex items-center gap-2 text-sm text-red-400 bg-red-500/10 border border-red-500/20 px-3 py-2 rounded-lg mt-2">
+                <Clock size={16} />
+                <span className="font-semibold">{effect.buildTime}</span>
+              </div>
+              
               <div className="mt-8 border-t border-border pt-8 flex flex-col gap-4">
                 <div className="flex justify-between items-baseline">
                   <span className="text-sm text-text-secondary uppercase tracking-wider">Single License</span>
@@ -53,11 +60,22 @@ export default async function EffectPage({ params }: { params: Promise<{ id: str
                 </div>
                 <CheckoutButton label="Buy Component" productId="single" />
                 <p className="text-xs text-center text-text-secondary mt-2">Included in Starter Bundle</p>
+                
+                {/* Guarantee */}
+                <div className="mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-lg flex items-start gap-3">
+                  <ShieldCheck size={20} className="text-green-400 shrink-0 mt-0.5" />
+                  <p className="text-xs text-text-secondary leading-relaxed">
+                    <strong className="text-white block mb-1">100% Refund Guarantee</strong>
+                    If you can't get this working in your React project, email <a href="mailto:expstudio26@gmail.com" className="text-accent hover:underline">expstudio26@gmail.com</a> for a full refund.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </PageTransition>
+      
+      <Footer />
     </main>
   );
 }

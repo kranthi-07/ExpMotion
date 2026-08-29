@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckoutButton } from "./CheckoutButton";
-import { Check } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 
 export function PricingTiers() {
   return (
@@ -17,7 +17,7 @@ export function PricingTiers() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
         {/* Tier 1 */}
-        <div className="glass-panel p-8 flex flex-col gap-6">
+        <div className="glass-panel p-8 flex flex-col gap-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-300">
           <div>
             <h3 className="text-xl font-semibold text-text-secondary">Single Element</h3>
             <div className="mt-4 flex items-baseline gap-2">
@@ -33,7 +33,7 @@ export function PricingTiers() {
         </div>
 
         {/* Tier 2 (Highlighted) */}
-        <div className="glass-panel p-8 flex flex-col gap-6 relative border-accent shadow-[0_0_30px_rgba(59,130,246,0.15)] transform md:-translate-y-4">
+        <div className="glass-panel p-8 flex flex-col gap-6 relative border-accent shadow-[0_0_30px_rgba(59,130,246,0.15)] transform md:-translate-y-4 hover:-translate-y-6 hover:shadow-[0_20px_50px_rgba(59,130,246,0.3)] hover:border-accent/80 transition-all duration-300">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
             Most Popular
           </div>
@@ -54,7 +54,7 @@ export function PricingTiers() {
         </div>
 
         {/* Tier 3 */}
-        <div className="glass-panel p-8 flex flex-col gap-6">
+        <div className="glass-panel p-8 flex flex-col gap-6 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:border-white/20 transition-all duration-300">
           <div>
             <h3 className="text-xl font-semibold text-text-secondary">Pro Pass</h3>
             <div className="mt-4 flex items-baseline gap-2">
@@ -69,6 +69,13 @@ export function PricingTiers() {
           </ul>
           <CheckoutButton label="Get Pro Pass" productId="pro" />
         </div>
+      </div>
+
+      <div className="mt-12 flex items-center justify-center gap-2 text-sm text-text-secondary">
+        <ShieldCheck size={18} className="text-green-400" />
+        <p>
+          <strong className="text-white">100% Refund Guarantee:</strong> If you can't get the code working in your project, email <a href="mailto:expstudio26@gmail.com" className="text-accent hover:underline">expstudio26@gmail.com</a> for a full refund.
+        </p>
       </div>
     </div>
   );

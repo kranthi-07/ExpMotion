@@ -23,7 +23,7 @@ export function Hero() {
           Vol. 01 Available Now
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-purple-300 pb-2">
           Make your website <br className="hidden md:block" />
           feel alive.
         </h1>

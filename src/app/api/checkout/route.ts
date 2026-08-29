@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
 
 // Initialize Razorpay conditionally (if no keys, we will return a mock)
-const razorpay = process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET 
+const razorpay = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET 
   ? new Razorpay({
-      key_id: process.env.RAZORPAY_KEY_ID,
+      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       key_secret: process.env.RAZORPAY_KEY_SECRET,
     })
   : null;

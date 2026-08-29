@@ -27,8 +27,15 @@ export function StorefrontGrid() {
                 </div>
                 <h3 className="text-2xl font-bold">{effect.name}</h3>
                 <p className="text-text-secondary flex-1">{effect.desc}</p>
-                <div className="mt-4 text-accent font-semibold flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  View Demo ➔
+                
+                <div className="flex items-center justify-between mt-4">
+                  <div className="flex items-center gap-1.5 px-3 py-1 bg-red-500/10 border border-red-500/20 rounded-full text-xs font-medium text-red-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+                    {effect.buildTime}
+                  </div>
+                  <div className="text-accent font-semibold flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    View Demo ➔
+                  </div>
                 </div>
               </motion.div>
             </Link>
