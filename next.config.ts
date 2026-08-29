@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: [],
+  experimental: {
+    outputFileTracingIncludes: {
+      '/api/download': ['./src/assets/**/*'],
+    },
+  },
 };
 
 export default nextConfig;
