@@ -105,6 +105,11 @@ export function CheckoutButton({ label = "Buy Vol. 01", productId = "bundle", ef
         },
         theme: {
           color: "#3b82f6" // matches accent color
+        },
+        modal: {
+          ondismiss: function() {
+            setStatus("idle");
+          }
         }
       };
 
