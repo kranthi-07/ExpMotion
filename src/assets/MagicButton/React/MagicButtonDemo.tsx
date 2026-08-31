@@ -20,7 +20,7 @@ export function MagicButtonDemo() {
   };
 
   const fireParticles = (count: number, isMini = false) => {
-    const newParticles = [];
+    const newParticles: {id: number, tx: number, ty: number, duration: number, size: number, delay: number}[] = [];
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
       const distance = isMini ? 20 + Math.random() * 45 : 55 + Math.random() * 130;
