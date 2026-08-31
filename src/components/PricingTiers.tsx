@@ -27,6 +27,7 @@ export function PricingTiers() {
           </div>
           <ul className="flex flex-col gap-3 text-sm text-text-secondary flex-1">
             <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> React Source Code</li>
+            <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> Raw HTML, CSS & JS</li>
             <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> Tailwind Support</li>
           </ul>
           <button 
@@ -62,7 +63,7 @@ export function PricingTiers() {
           </div>
           <ul className="flex flex-col gap-3 text-sm text-text-secondary flex-1">
             <li className="flex items-center gap-2 text-white"><Check size={16} className="text-accent"/> 5 Premium Components</li>
-            <li className="flex items-center gap-2 text-white"><Check size={16} className="text-accent"/> React & Next.js Ready</li>
+            <li className="flex items-center gap-2 text-white"><Check size={16} className="text-accent"/> React + Raw HTML/CSS/JS</li>
             <li className="flex items-center gap-2 text-white"><Check size={16} className="text-accent"/> Lifetime Updates</li>
           </ul>
           <CheckoutButton label="Buy Bundle" productId="bundle" />
@@ -77,10 +78,11 @@ export function PricingTiers() {
               <span className="text-text-secondary text-sm">/ all elements</span>
             </div>
           </div>
-          <ul className="flex flex-col gap-3 text-sm text-text-secondary flex-1">
-            <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> All Current Components</li>
-            <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> All Future Releases</li>
-            <li className="flex items-center gap-2"><Check size={16} className="text-green-400"/> Priority Support</li>
+          <ul className="flex flex-col gap-3 text-sm text-blue-100/70 flex-1">
+            <li className="flex items-center gap-2"><Check size={16} className="text-blue-400"/> All 5 Premium Components</li>
+            <li className="flex items-center gap-2"><Check size={16} className="text-blue-400"/> React + Raw HTML/CSS/JS</li>
+            <li className="flex items-center gap-2"><Check size={16} className="text-blue-400"/> Lifetime Updates</li>
+            <li className="flex items-center gap-2"><Check size={16} className="text-blue-400"/> Commercial License</li>
           </ul>
           <CheckoutButton label="Get Pro Pass" productId="pro" />
         </div>

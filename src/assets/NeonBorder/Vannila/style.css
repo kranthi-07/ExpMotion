@@ -1,0 +1,84 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #09090b; /* bg-background */
+  font-family: system-ui, sans-serif;
+  color: white;
+}
+
+#neon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neon-border-wrapper {
+  position: relative;
+  padding: 2px; /* Border thickness */
+  border-radius: 1rem; /* rounded-2xl */
+  overflow: hidden;
+}
+
+.beam-1 {
+  position: absolute;
+  /* Instead of inset: -100%, we calculate center to rotate cleanly */
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 0, transparent 340deg, rgba(236,72,153,1) 360deg);
+  animation: spinClockwise 4s linear infinite;
+  opacity: 1;
+}
+
+.beam-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 0, transparent 340deg, rgba(168,85,247,0.8) 360deg);
+  animation: spinCounter 6s linear infinite;
+  opacity: 0.5;
+}
+
+.neon-content {
+  position: relative;
+  z-index: 10;
+  width: 18rem; /* w-72 */
+  height: 12rem; /* h-48 */
+  background-color: #18181b; /* bg-surface */
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 2.5rem; /* p-10 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(64px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.neon-content h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-shadow: 0 0 15px rgba(236,72,153,0.5);
+}
+
+.neon-content p {
+  color: #a1a1aa; /* text-secondary */
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes spinClockwise {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spinCounter {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}

@@ -25,7 +25,14 @@ export function StorefrontGrid() {
                 <div className={`p-4 rounded-xl bg-white/5 w-fit group-hover:bg-accent/10 transition-colors ${effect.color}`}>
                   <Icon size={32} />
                 </div>
-                <h3 className="text-2xl font-bold">{effect.name}</h3>
+                <div className="flex items-center gap-3">
+                  <h3 className="text-2xl font-bold">{effect.name}</h3>
+                  {effect.isFree && (
+                    <span className="bg-green-500/20 text-green-400 text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider border border-green-500/30">
+                      Free
+                    </span>
+                  )}
+                </div>
                 <p className="text-text-secondary flex-1">{effect.desc}</p>
                 
                 <div className="flex items-center justify-between mt-4">

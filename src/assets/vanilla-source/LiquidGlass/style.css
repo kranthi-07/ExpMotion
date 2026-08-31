@@ -1,0 +1,113 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #09090b; /* bg-background */
+  font-family: system-ui, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+#liquid-glass-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Gradients & Blobs */
+.bg-gradient {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: radial-gradient(ellipse at center, rgba(30, 58, 138, 0.4), #09090b 70%);
+}
+
+.blob-1 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 16rem;
+  height: 16rem;
+  background-color: rgba(59, 130, 246, 0.3); /* accent/30 */
+  border-radius: 50%;
+  filter: blur(64px);
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.blob-2 {
+  position: absolute;
+  bottom: 25%;
+  right: 25%;
+  width: 20rem;
+  height: 20rem;
+  background-color: rgba(168, 85, 247, 0.2); /* purple-500/20 */
+  border-radius: 50%;
+  filter: blur(64px);
+  animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .5; }
+}
+
+/* The Glass Card */
+.glass-card {
+  position: relative;
+  z-index: 10;
+  width: 18rem;
+  height: 24rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: grab;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.glass-card:active {
+  cursor: grabbing;
+}
+
+.glass-card.hovered {
+  transform: scale(1.02);
+}
+
+.glass-card.dragging {
+  transform: scale(1.05) rotate(2deg) !important;
+  transition: none;
+}
+
+/* Inner Sheen */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, rgba(255,255,255,0.05), transparent);
+  pointer-events: none;
+}
+
+.glass-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.glass-card p {
+  color: #a1a1aa;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
